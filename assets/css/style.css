@@ -1,0 +1,275 @@
+/* Bharat Heritage Trail — design tokens & layout
+   Warm, editorial "Heritage Passport" system: a traveller's passport gets a
+   stamp per country; this site stamps a passport per site visited. */
+
+:root {
+  --bg: #f0eee6;
+  --surface: #faf9f5;
+  --ink: #1f1e1d;
+  --muted: #6b6862;
+  --accent: #c15f3c;
+  --accent-ink: #faf9f5;
+  --border: #ddd8cc;
+  --radius: 10px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --max-width: 720px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 46ch;
+}
+
+.progress-bar {
+  margin-top: 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-item strong {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.progress-sep {
+  color: var(--border);
+}
+
+/* ---------- Tabs ---------- */
+
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 4px;
+  padding: 10px 20px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.tab {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab[aria-selected="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface);
+}
+
+/* ---------- Ledger ---------- */
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 8px 20px 48px;
+}
+
+.state-group {
+  margin-top: 28px;
+}
+
+.state-group-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+  margin: 0 0 4px;
+}
+
+.state-count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.site-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-row {
+  display: flex;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-row:last-child {
+  border-bottom: none;
+}
+
+.visited-toggle {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  margin-top: 2px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+}
+
+.visited-toggle[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.visited-toggle[aria-pressed="true"]::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 4px;
+  width: 6px;
+  height: 11px;
+  border-right: 2px solid var(--accent-ink);
+  border-bottom: 2px solid var(--accent-ink);
+  transform: rotate(45deg);
+}
+
+.site-info {
+  min-width: 0;
+}
+
+.site-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.site-meta {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.site-blurb {
+  margin: 0 0 6px;
+  font-size: 14.5px;
+  color: var(--ink);
+  max-width: 62ch;
+}
+
+.site-links {
+  margin: 0;
+  font-size: 13px;
+  display: flex;
+  gap: 14px;
+}
+
+.site-links a {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer p {
+  max-width: 62ch;
+  margin: 0 0 10px;
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
