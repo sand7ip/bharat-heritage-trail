@@ -367,7 +367,7 @@ main {
   min-height: 340px;
   max-height: 560px;
   width: 100%;
-  background: var(--surface);
+  background: var(--bg);
 }
 
 .map-marker {
@@ -414,12 +414,12 @@ main {
   position: fixed;
   inset: 0;
   background: rgba(31, 30, 29, 0.35);
-  z-index: 100;
+  z-index: 2000;
 }
 
 .detail-panel {
   position: fixed;
-  z-index: 101;
+  z-index: 2001;
   left: 0;
   right: 0;
   bottom: 0;

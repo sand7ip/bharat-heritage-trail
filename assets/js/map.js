@@ -4,20 +4,32 @@
   var mapEl = document.getElementById("map");
   if (!mapEl || typeof L === "undefined") return;
 
-  var INDIA_BOUNDS = L.latLngBounds([6, 66], [37.5, 99]);
+  // No basemap tiles at all -- every free/keyless tile provider either bakes
+  // in city labels and borders (plain OSM) or now gates its "no labels" style
+  // behind an API key (CARTO). A single India outline plus the 60 site dots
+  // is the actual brief here ("very simple... nothing else"), so that's all
+  // this renders: one local vendored GeoJSON polygon, no network requests,
+  // no other country's borders, no labels, no roads.
+  var outlineLayer = L.geoJSON(BHT.INDIA_OUTLINE, {
+    style: {
+      color: "#ddd8cc",
+      weight: 1.5,
+      fillColor: "#faf9f5",
+      fillOpacity: 1,
+    },
+  });
+  var INDIA_BOUNDS = outlineLayer.getBounds();
 
   var map = L.map(mapEl, {
-    center: [22.5, 80],
+    center: INDIA_BOUNDS.getCenter(),
     zoom: 5,
     minZoom: 4,
-    maxBounds: INDIA_BOUNDS.pad(0.15),
+    maxBounds: INDIA_BOUNDS.pad(0.25),
     maxBoundsViscosity: 0.8,
+    attributionControl: false,
+    zoomSnap: 0.25,
   });
-
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
-    maxZoom: 18,
-  }).addTo(map);
+  outlineLayer.addTo(map);
 
   // The map container starts `hidden` (list view is the default), so fitBounds
   // can't run correctly until the container has real, non-zero dimensions --

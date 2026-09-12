@@ -6,6 +6,7 @@
 
   var SITES = JSON.parse(document.getElementById("sites-data").textContent);
   var CITIES = JSON.parse(document.getElementById("cities-data").textContent);
+  var INDIA_OUTLINE = JSON.parse(document.getElementById("india-outline-data").textContent);
   var SITES_BY_ID = {};
   SITES.forEach(function (s) { SITES_BY_ID[s.id] = s; });
 
@@ -50,6 +51,7 @@
   window.BHT = {
     SITES: SITES,
     CITIES: CITIES,
+    INDIA_OUTLINE: INDIA_OUTLINE,
     siteById: function (id) { return SITES_BY_ID[id]; },
 
     isVisited: function (id) { return !!visited[id]; },
