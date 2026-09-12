@@ -6,6 +6,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
 const sites = JSON.parse(readFileSync(new URL("../data/sites.json", import.meta.url)));
+const cities = JSON.parse(readFileSync(new URL("../data/cities.json", import.meta.url)));
 const indexPath = new URL("../index.html", import.meta.url);
 let html = readFileSync(indexPath, "utf8");
 
@@ -63,6 +64,12 @@ const jsonPayload = JSON.stringify(sites).replace(/</g, "\\u003c");
 html = html.replace(
   /(<script type="application\/json" id="sites-data">\n)[\s\S]*?(\n<\/script>)/,
   `$1${jsonPayload}$2`
+);
+
+const citiesPayload = JSON.stringify(cities).replace(/</g, "\\u003c");
+html = html.replace(
+  /(<script type="application\/json" id="cities-data">\n)[\s\S]*?(\n<\/script>)/,
+  `$1${citiesPayload}$2`
 );
 
 writeFileSync(indexPath, html);

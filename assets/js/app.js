@@ -1,86 +1,54 @@
 (function () {
   "use strict";
 
-  var SITES = JSON.parse(document.getElementById("sites-data").textContent);
-  var STORAGE_KEY = "bht:visited";
-
-  function loadVisited() {
-    try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch (e) {
-      return {};
-    }
-  }
-
-  function saveVisited(visited) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(visited));
-    } catch (e) {
-      /* localStorage unavailable (private mode etc.) -- app still works, just doesn't persist */
-    }
-  }
-
-  var visited = loadVisited();
-
   function updateCounts() {
-    var unescoTotal = 0, unescoDone = 0, pilgrimTotal = 0, pilgrimDone = 0;
-    SITES.forEach(function (s) {
-      var isVisited = !!visited[s.id];
-      if (s.collections.indexOf("unesco") !== -1) {
-        unescoTotal++;
-        if (isVisited) unescoDone++;
-      }
-      if (s.collections.indexOf("jyotirlinga") !== -1 || s.collections.indexOf("chardham") !== -1) {
-        pilgrimTotal++;
-        if (isVisited) pilgrimDone++;
-      }
-    });
+    var c = BHT.counts();
     var uEl = document.querySelector('[data-count="unesco"]');
     var pEl = document.querySelector('[data-count="pilgrimage"]');
-    if (uEl) uEl.textContent = unescoDone;
-    if (pEl) pEl.textContent = pilgrimDone;
+    if (uEl) uEl.textContent = c.unescoDone;
+    if (pEl) pEl.textContent = c.pilgrimDone;
 
     var stateCounts = {};
-    SITES.forEach(function (s) {
+    BHT.SITES.forEach(function (s) {
       if (!stateCounts[s.state]) stateCounts[s.state] = { total: 0, done: 0 };
       stateCounts[s.state].total++;
-      if (visited[s.id]) stateCounts[s.state].done++;
+      if (BHT.isVisited(s.id)) stateCounts[s.state].done++;
     });
     Object.keys(stateCounts).forEach(function (state) {
-      var el = document.querySelector('[data-state-count="' + cssEscape(state) + '"]');
+      var el = document.querySelector('[data-state-count="' + BHT.cssEscape(state) + '"]');
       if (el) el.textContent = stateCounts[state].done + "/" + stateCounts[state].total;
     });
-  }
-
-  function cssEscape(str) {
-    return window.CSS && CSS.escape ? CSS.escape(str) : str.replace(/["\\]/g, "\\$&");
   }
 
   function applyVisitedState() {
     document.querySelectorAll(".visited-toggle").forEach(function (btn) {
       var id = btn.getAttribute("data-id");
-      btn.setAttribute("aria-pressed", visited[id] ? "true" : "false");
+      btn.setAttribute("aria-pressed", BHT.isVisited(id) ? "true" : "false");
     });
-  }
-
-  function toggleVisited(id) {
-    visited[id] = !visited[id];
-    if (!visited[id]) delete visited[id];
-    saveVisited(visited);
-    applyVisitedState();
-    updateCounts();
   }
 
   document.addEventListener("click", function (e) {
     var btn = e.target.closest(".visited-toggle");
-    if (btn) toggleVisited(btn.getAttribute("data-id"));
+    if (btn) {
+      e.stopPropagation();
+      BHT.toggleVisited(btn.getAttribute("data-id"));
+      return;
+    }
+    var row = e.target.closest(".site-row");
+    if (row) {
+      BHT.openDetail(row.getAttribute("data-id"));
+    }
   });
 
-  var tabs = document.querySelectorAll(".tab");
-  tabs.forEach(function (tab) {
+  BHT.onVisitedChange(function () {
+    applyVisitedState();
+    updateCounts();
+  });
+
+  var filterTabs = document.querySelectorAll('.tabs[aria-label="Filter by collection"] .tab');
+  filterTabs.forEach(function (tab) {
     tab.addEventListener("click", function () {
-      tabs.forEach(function (t) { t.setAttribute("aria-selected", "false"); });
+      filterTabs.forEach(function (t) { t.setAttribute("aria-selected", "false"); });
       tab.setAttribute("aria-selected", "true");
       var filter = tab.getAttribute("data-filter");
       document.querySelectorAll(".site-row").forEach(function (row) {
@@ -95,6 +63,26 @@
         var anyVisible = group.querySelectorAll('.site-row:not([style*="display: none"])').length > 0;
         group.style.display = anyVisible ? "" : "none";
       });
+      if (window.BHT_MAP) window.BHT_MAP.setFilter(filter);
+    });
+  });
+
+  var viewTabs = document.querySelectorAll(".view-toggle .tab-view");
+  var ledger = document.getElementById("ledger");
+  var mapSection = document.getElementById("map-section");
+  viewTabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      viewTabs.forEach(function (t) { t.setAttribute("aria-selected", "false"); });
+      tab.setAttribute("aria-selected", "true");
+      var view = tab.getAttribute("data-view");
+      if (view === "map") {
+        ledger.hidden = true;
+        mapSection.hidden = false;
+        if (window.BHT_MAP) window.BHT_MAP.invalidateSize();
+      } else {
+        ledger.hidden = false;
+        mapSection.hidden = true;
+      }
     });
   });
 

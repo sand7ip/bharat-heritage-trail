@@ -8,6 +8,7 @@
   --ink: #1f1e1d;
   --muted: #6b6862;
   --accent: #c15f3c;
+  --accent2: #4a6b73;
   --accent-ink: #faf9f5;
   --border: #ddd8cc;
   --radius: 10px;
@@ -100,20 +101,127 @@ input:focus-visible {
   color: var(--border);
 }
 
+/* ---------- Base city picker ---------- */
+
+.base-city {
+  position: relative;
+  margin-top: 18px;
+  max-width: 360px;
+}
+
+.base-city label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+
+.base-city-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.base-city-input-wrap input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 15px;
+  padding: 9px 34px 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.base-city-clear {
+  position: absolute;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.base-city-clear:hover {
+  background: var(--border);
+}
+
+.city-suggestions {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(31, 30, 29, 0.08);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.city-suggestions li {
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 14.5px;
+  cursor: pointer;
+}
+
+.city-suggestions li:hover,
+.city-suggestions li[aria-selected="true"] {
+  background: var(--bg);
+}
+
 /* ---------- Tabs ---------- */
 
-.tabs {
+.tabs-row {
   position: sticky;
   top: 0;
   z-index: 10;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   display: flex;
-  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   padding: 10px 20px;
   max-width: var(--max-width);
   margin: 0 auto;
   overflow-x: auto;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 2px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.view-toggle .tab {
+  border: none;
+  padding: 6px 12px;
+}
+
+.view-toggle .tab[aria-selected="true"] {
+  background: var(--ink);
+  color: var(--surface);
 }
 
 .tab {
@@ -246,6 +354,219 @@ main {
 .site-links a {
   text-decoration: none;
   border-bottom: 1px solid currentColor;
+}
+
+/* ---------- Map ---------- */
+
+.map-section {
+  border-bottom: 1px solid var(--border);
+}
+
+.site-map {
+  height: 60vh;
+  min-height: 340px;
+  max-height: 560px;
+  width: 100%;
+  background: var(--surface);
+}
+
+.map-marker {
+  position: relative;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--surface);
+  box-shadow: 0 0 0 1px rgba(31, 30, 29, 0.25);
+  background: var(--accent);
+}
+
+.map-marker--pilgrim {
+  background: var(--accent2);
+}
+
+.map-marker--visited {
+  background: var(--muted);
+  opacity: 0.55;
+}
+
+.map-marker--visited::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  width: 4px;
+  height: 7px;
+  border-right: 1.5px solid var(--surface);
+  border-bottom: 1.5px solid var(--surface);
+  transform: rotate(45deg);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-tooltip {
+  font-family: var(--font);
+  border-radius: var(--radius);
+}
+
+/* ---------- Detail panel ---------- */
+
+.detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 30, 29, 0.35);
+  z-index: 100;
+}
+
+.detail-panel {
+  position: fixed;
+  z-index: 101;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 86vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-radius: 16px 16px 0 0;
+  padding: 20px 20px 32px;
+}
+
+@media (min-width: 720px) {
+  .detail-panel {
+    left: auto;
+    top: 0;
+    bottom: 0;
+    width: 420px;
+    max-height: none;
+    border-top: none;
+    border-left: 1px solid var(--border);
+    border-radius: 0;
+  }
+}
+
+.detail-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.detail-body {
+  clear: both;
+  padding-top: 8px;
+}
+
+.detail-name {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.detail-meta {
+  color: var(--muted);
+  font-size: 13.5px;
+  margin: 0 0 12px;
+}
+
+.detail-blurb {
+  font-size: 15px;
+  margin: 0 0 14px;
+}
+
+.detail-distance {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  margin: 0 0 14px;
+}
+
+.detail-distance-empty {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.detail-travel {
+  margin: 0 0 14px;
+  font-size: 14px;
+}
+
+.detail-travel dt {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.detail-travel dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.detail-links {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  margin: 0 0 18px;
+}
+
+.detail-links a {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.detail-visited-toggle {
+  width: 100%;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+.detail-visited-toggle[aria-pressed="true"] {
+  background: transparent;
+  color: var(--accent);
+}
+
+.detail-nearby h3 {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.detail-nearby ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detail-nearby-link {
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  cursor: pointer;
 }
 
 /* ---------- Footer ---------- */
