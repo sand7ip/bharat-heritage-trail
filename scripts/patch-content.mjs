@@ -13,8 +13,9 @@ const railair = [
   ...JSON.parse(readFileSync(new URL("./_railair-batch2.json", import.meta.url))),
 ];
 const railairMap = new Map(railair.map((r) => [r.id, r]));
+const images = JSON.parse(readFileSync(new URL("../data/site-images.json", import.meta.url)));
 
-const missing = { blurb: [], railair: [] };
+const missing = { blurb: [], railair: [], image: [] };
 
 for (const s of sites) {
   if (unescoContent[s.id]) {
@@ -33,12 +34,18 @@ for (const s of sites) {
   } else {
     missing.railair.push(s.id);
   }
+
+  if (images[s.id]) {
+    s.image = images[s.id];
+  } else {
+    missing.image.push(s.id);
+  }
 }
 
-if (missing.blurb.length || missing.railair.length) {
+if (missing.blurb.length || missing.railair.length || missing.image.length) {
   console.error("Missing content:", missing);
   process.exit(1);
 }
 
 writeFileSync(sitesPath, JSON.stringify(sites, null, 2) + "\n");
-console.log(`Patched blurb/bestMonths and nearestRail/nearestAirport for all ${sites.length} sites.`);
+console.log(`Patched blurb/bestMonths, nearestRail/nearestAirport, and image for all ${sites.length} sites.`);

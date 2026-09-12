@@ -64,6 +64,7 @@
     onVisitedChange: function (cb) { visitedListeners.push(cb); },
     counts: function () {
       var unescoTotal = 0, unescoDone = 0, pilgrimTotal = 0, pilgrimDone = 0;
+      var jyotirlingaTotal = 0, jyotirlingaDone = 0, chardhamTotal = 0, chardhamDone = 0;
       SITES.forEach(function (s) {
         var isVisited = !!visited[s.id];
         if (s.collections.indexOf("unesco") !== -1) {
@@ -74,8 +75,21 @@
           pilgrimTotal++;
           if (isVisited) pilgrimDone++;
         }
+        if (s.collections.indexOf("jyotirlinga") !== -1) {
+          jyotirlingaTotal++;
+          if (isVisited) jyotirlingaDone++;
+        }
+        if (s.collections.indexOf("chardham") !== -1) {
+          chardhamTotal++;
+          if (isVisited) chardhamDone++;
+        }
       });
-      return { unescoTotal: unescoTotal, unescoDone: unescoDone, pilgrimTotal: pilgrimTotal, pilgrimDone: pilgrimDone };
+      return {
+        unescoTotal: unescoTotal, unescoDone: unescoDone,
+        pilgrimTotal: pilgrimTotal, pilgrimDone: pilgrimDone,
+        jyotirlingaTotal: jyotirlingaTotal, jyotirlingaDone: jyotirlingaDone,
+        chardhamTotal: chardhamTotal, chardhamDone: chardhamDone,
+      };
     },
 
     getBaseCity: function () { return baseCity; },

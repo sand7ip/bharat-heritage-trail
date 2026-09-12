@@ -52,6 +52,11 @@ check(
 );
 
 check(
+  "Every site has an image URL",
+  sites.every((s) => typeof s.image === "string" && /^https:\/\//.test(s.image))
+);
+
+check(
   "Every UNESCO site has a numeric unescoId + unescoUrl; every non-UNESCO site has both null",
   sites.every((s) =>
     s.collections.includes("unesco")

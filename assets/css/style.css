@@ -517,6 +517,16 @@ main {
   padding-top: 8px;
 }
 
+.detail-image {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin: 0 0 14px;
+  background: var(--bg);
+}
+
 .detail-name {
   font-size: 21px;
   font-weight: 700;
@@ -855,6 +865,23 @@ footer p {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-ink);
+}
+
+.share-btn-full {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.share-btn:not(.share-btn-primary) {
+  font-size: 13.5px;
+  padding: 10px 8px;
+}
+
+.share-note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
 }
 
 /* ---------- Reduced motion ---------- */

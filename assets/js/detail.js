@@ -25,6 +25,14 @@
     var distance = BHT.distanceToSite(site);
 
     var html = "";
+    if (site.image) {
+      html +=
+        '<img class="detail-image" src="' +
+        esc(site.image) +
+        '" alt="' +
+        esc(site.name) +
+        '" loading="lazy" onerror="this.remove()">';
+    }
     html += '<h2 class="detail-name">' + esc(site.name) + "</h2>";
     html += '<p class="detail-meta">' + esc(metaLine(site)) + "</p>";
     html += '<p class="detail-blurb">' + esc(site.blurb) + "</p>";

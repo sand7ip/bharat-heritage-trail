@@ -63,6 +63,20 @@ def draw_spire(draw, cx, cy, scale, color):
     )
 
 
+def draw_badge(draw, cx, cy, r, fill_color, ring_color):
+    """The one brand mark used everywhere: solid filled circle + inset ring.
+    Matches assets/favicon.svg exactly (same 0.793 ring-radius ratio, same
+    ring-width ratio) so every place the mark appears -- favicon, topbar,
+    apple-touch-icon, og-image, the share card -- looks identical."""
+    draw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=fill_color)
+    inner_r = r * 0.793
+    draw.ellipse(
+        [cx - inner_r, cy - inner_r, cx + inner_r, cy + inner_r],
+        outline=ring_color,
+        width=max(1, round(r * 0.048)),
+    )
+
+
 def draw_stamp_ring(draw, cx, cy, r, color, tick_count=40, tick_len=10, width=4):
     draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=color, width=width)
     inner_r = r - tick_len - 8
@@ -100,7 +114,9 @@ def make_touch_icon():
     img = Image.new("RGB", (size, size), ACCENT)
     draw = ImageDraw.Draw(img)
     cx, cy = size / 2, size / 2
-    draw_stamp_ring(draw, cx, cy, r=68, color=CREAM, tick_count=28, tick_len=6, width=4)
+    r = 86
+    inner_r = r * 0.793
+    draw.ellipse([cx - inner_r, cy - inner_r, cx + inner_r, cy + inner_r], outline=CREAM, width=max(1, round(r * 0.048)))
     draw_spire(draw, cx, cy + 4, scale=62, color=CREAM)
     img.save(os.path.join(OUT_DIR, "apple-touch-icon.png"))
     print("Wrote apple-touch-icon.png (180x180)")
@@ -116,8 +132,8 @@ def make_og_image():
 
     cx, cy = 300, 315
     r = 150
-    draw_stamp_ring(draw, cx, cy, r=r, color=ACCENT, tick_count=48, tick_len=9, width=5)
-    draw_spire(draw, cx, cy + 10, scale=150, color=ACCENT)
+    draw_badge(draw, cx, cy, r, fill_color=ACCENT, ring_color=CREAM)
+    draw_spire(draw, cx, cy + 10, scale=150 * 0.62, color=CREAM)
 
     arc_font = font(34, bold=True)
     draw_curved_text(img, "BHARAT HERITAGE TRAIL", cx, cy, r - 34, arc_font, INK, start_deg=-150, end_deg=150)

@@ -6,9 +6,14 @@
   var canvas = document.getElementById("share-canvas");
   var closeBtn = document.getElementById("share-close");
   var downloadBtn = document.getElementById("share-download");
-  var nativeShareBtn = document.getElementById("share-native");
+  var whatsappBtn = document.getElementById("share-whatsapp");
+  var facebookBtn = document.getElementById("share-facebook");
+  var instagramBtn = document.getElementById("share-instagram");
+  var noteEl = document.getElementById("share-note");
   if (!canvas) return;
   var ctx = canvas.getContext("2d");
+
+  var SITE_URL = "https://YOUR-DOMAIN-HERE.example/";
 
   var INK = "#1f1e1d";
   var MUTED = "#6b6862";
@@ -60,32 +65,24 @@
     ctx.closePath();
   }
 
+  // Exactly the favicon/topbar mark: solid accent badge, inset cream ring,
+  // cream tiered-spire silhouette. Same composition and proportions
+  // everywhere the brand mark appears (favicon, apple-touch-icon,
+  // og-image, topbar, this card) -- no separate "stamp with rays" variant.
   function drawStamp(cx, cy, r) {
     ctx.save();
-    ctx.strokeStyle = ACCENT;
-    ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.arc(cx, cy, r, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(cx, cy, r - 10, 0, Math.PI * 2);
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-    var ticks = 32;
-    for (var i = 0; i < ticks; i++) {
-      var a = (i / ticks) * Math.PI * 2;
-      var x1 = cx + Math.cos(a) * (r + 4);
-      var y1 = cy + Math.sin(a) * (r + 4);
-      var x2 = cx + Math.cos(a) * (r + 12);
-      var y2 = cy + Math.sin(a) * (r + 12);
-      ctx.beginPath();
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x2, y2);
-      ctx.lineWidth = 2;
-      ctx.stroke();
-    }
-    // simple spire mark, matches the favicon
     ctx.fillStyle = ACCENT;
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, r * 0.793, 0, Math.PI * 2);
+    ctx.strokeStyle = "#faf9f5";
+    ctx.lineWidth = r * 0.048;
+    ctx.stroke();
+
+    ctx.fillStyle = "#faf9f5";
     var s = r * 0.62;
     var tiers = [
       [0.55, 0.08],
@@ -130,7 +127,7 @@
 
     // India outline with dots for visited sites
     var bounds = outlineBounds();
-    var mapBox = { x: 90, y: 220, w: W - 180, h: 560 };
+    var mapBox = { x: 90, y: 210, w: W - 180, h: 470 };
     var project = makeProjector(bounds, mapBox);
 
     ctx.beginPath();
@@ -158,26 +155,27 @@
       ctx.stroke();
     });
 
-    // Stats
+    // Stats -- UNESCO, Jyotirlinga and Char Dham each shown separately
     var counts = BHT.counts();
-    var statsY = 850;
+    var statsY = 758;
+    var rowGap = 68;
     ctx.textBaseline = "alphabetic";
 
-    ctx.font = "700 64px -apple-system, Helvetica, Arial, sans-serif";
-    ctx.fillStyle = ACCENT;
-    ctx.fillText(String(counts.unescoDone), 90, statsY);
-    var w1 = ctx.measureText(String(counts.unescoDone)).width;
-    ctx.font = "400 30px -apple-system, Helvetica, Arial, sans-serif";
-    ctx.fillStyle = MUTED;
-    ctx.fillText("/" + counts.unescoTotal + " UNESCO", 90 + w1 + 8, statsY);
-
-    ctx.font = "700 64px -apple-system, Helvetica, Arial, sans-serif";
-    ctx.fillStyle = ACCENT;
-    ctx.fillText(String(counts.pilgrimDone), 90, statsY + 74);
-    var w2 = ctx.measureText(String(counts.pilgrimDone)).width;
-    ctx.font = "400 30px -apple-system, Helvetica, Arial, sans-serif";
-    ctx.fillStyle = MUTED;
-    ctx.fillText("/" + counts.pilgrimTotal + " Jyotirlinga & Dham", 90 + w2 + 8, statsY + 74);
+    var rows = [
+      [counts.unescoDone, counts.unescoTotal, "UNESCO"],
+      [counts.jyotirlingaDone, counts.jyotirlingaTotal, "Jyotirlinga"],
+      [counts.chardhamDone, counts.chardhamTotal, "Char Dham"],
+    ];
+    rows.forEach(function (row, i) {
+      var y = statsY + i * rowGap;
+      ctx.font = "700 52px -apple-system, Helvetica, Arial, sans-serif";
+      ctx.fillStyle = ACCENT;
+      ctx.fillText(String(row[0]), 90, y);
+      var w = ctx.measureText(String(row[0])).width;
+      ctx.font = "400 26px -apple-system, Helvetica, Arial, sans-serif";
+      ctx.fillStyle = MUTED;
+      ctx.fillText("/" + row[1] + " " + row[2], 90 + w + 8, y);
+    });
 
     // Domain, small, corner
     ctx.font = "400 22px -apple-system, Helvetica, Arial, sans-serif";
@@ -193,51 +191,83 @@
     });
   }
 
-  downloadBtn.addEventListener("click", async function () {
-    var blob = await toBlob();
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = "bharat-heritage-trail.png";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
-  });
-
-  if (nativeShareBtn) {
-    nativeShareBtn.addEventListener("click", async function () {
-      var blob = await toBlob();
-      var file = new File([blob], "bharat-heritage-trail.png", { type: "image/png" });
-      try {
-        await navigator.share({
-          files: [file],
-          title: "Bharat Heritage Trail",
-          text: "My heritage passport so far.",
-        });
-      } catch (e) {
-        /* user cancelled share sheet -- no-op */
-      }
+  function downloadImage() {
+    return toBlob().then(function (blob) {
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "bharat-heritage-trail.png";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
     });
   }
 
+  function shareText() {
+    var c = BHT.counts();
+    var total = c.unescoDone + c.pilgrimDone;
+    return (
+      "I've marked " + total + " of 60 heritage & pilgrimage sites in India on Bharat Heritage Trail! " + SITE_URL
+    );
+  }
+
+  function canShareFiles() {
+    if (!navigator.canShare) return false;
+    try {
+      return navigator.canShare({ files: [new File([], "x.png", { type: "image/png" })] });
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function showNote(text) {
+    noteEl.textContent = text;
+    noteEl.hidden = false;
+  }
+
+  downloadBtn.addEventListener("click", downloadImage);
+
+  // WhatsApp and Facebook have no web API that accepts an arbitrary image
+  // file -- WhatsApp's web intent only pre-fills text, and Facebook's
+  // sharer only reads a URL's own og:image. Both open honestly as link
+  // shares; Instagram has no web intent at all, so it goes through the
+  // native share sheet (which does carry the actual image) where supported,
+  // and otherwise falls back to a plain download with instructions.
+  whatsappBtn.addEventListener("click", function () {
+    window.open("https://wa.me/?text=" + encodeURIComponent(shareText()), "_blank", "noopener");
+  });
+
+  facebookBtn.addEventListener("click", function () {
+    window.open(
+      "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(SITE_URL),
+      "_blank",
+      "noopener"
+    );
+    showNote("Facebook shares your link. Save the image above first if you want to attach it to the post.");
+  });
+
+  instagramBtn.addEventListener("click", async function () {
+    if (canShareFiles()) {
+      var blob = await toBlob();
+      var file = new File([blob], "bharat-heritage-trail.png", { type: "image/png" });
+      try {
+        await navigator.share({ files: [file], title: "Bharat Heritage Trail", text: "My heritage passport so far." });
+      } catch (e) {
+        /* user cancelled the share sheet -- no-op */
+      }
+    } else {
+      await downloadImage();
+      showNote("Image saved — open Instagram and share it from your gallery.");
+    }
+  });
+
   function open() {
     render();
+    noteEl.hidden = true;
     overlay.hidden = false;
     modal.hidden = false;
     document.body.style.overflow = "hidden";
-    if (nativeShareBtn) {
-      var canShareFiles =
-        navigator.canShare &&
-        (function () {
-          try {
-            return navigator.canShare({ files: [new File([], "x.png", { type: "image/png" })] });
-          } catch (e) {
-            return false;
-          }
-        })();
-      nativeShareBtn.hidden = !canShareFiles;
-    }
   }
 
   function close() {

@@ -24,7 +24,8 @@
       "km": 48
     },
     "nearby": [],
-    "cluster": "aurangabad-deccan"
+    "cluster": "aurangabad-deccan",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Ajanta_%2863%29.jpg/500px-Ajanta_%2863%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "ellora-caves",
@@ -53,7 +54,8 @@
     "nearby": [
       "grishneshwar-temple"
     ],
-    "cluster": "aurangabad-deccan"
+    "cluster": "aurangabad-deccan",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ellora_Caves%2C_India%2C_Kailasanatha_Temple_2.jpg/500px-Ellora_Caves%2C_India%2C_Kailasanatha_Temple_2.jpg"
   },
   {
     "id": "agra-fort",
@@ -82,7 +84,8 @@
     "nearby": [
       "taj-mahal"
     ],
-    "cluster": "agra-braj"
+    "cluster": "agra-braj",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Agra_03-2016_16_Agra_Fort.jpg/500px-Agra_03-2016_16_Agra_Fort.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "taj-mahal",
@@ -111,7 +114,8 @@
     "nearby": [
       "agra-fort"
     ],
-    "cluster": "agra-braj"
+    "cluster": "agra-braj",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/500px-Taj_Mahal_%28Edited%29.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "konark-sun-temple",
@@ -138,7 +142,8 @@
       "km": 65
     },
     "nearby": [],
-    "cluster": "odisha-coast"
+    "cluster": "odisha-coast",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Konarka_Temple.jpg/500px-Konarka_Temple.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "mahabalipuram-monuments",
@@ -165,7 +170,8 @@
       "km": 58
     },
     "nearby": [],
-    "cluster": "tamil-nadu-temple-trail"
+    "cluster": "tamil-nadu-temple-trail",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Mamallapuram_view.jpg/500px-Mamallapuram_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "kaziranga-national-park",
@@ -192,7 +198,8 @@
       "km": 97
     },
     "nearby": [],
-    "cluster": "assam-northeast"
+    "cluster": "assam-northeast",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Beauty_of_Kaziranga_National_Park.jpg/500px-Beauty_of_Kaziranga_National_Park.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "manas-wildlife-sanctuary",
@@ -219,7 +226,8 @@
       "km": 140
     },
     "nearby": [],
-    "cluster": "assam-northeast"
+    "cluster": "assam-northeast",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Manas_landscape_rhino.jpg/500px-Manas_landscape_rhino.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "keoladeo-national-park",
@@ -248,7 +256,8 @@
     "nearby": [
       "fatehpur-sikri"
     ],
-    "cluster": "agra-braj"
+    "cluster": "agra-braj",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/004_Chital_in_Keoladeo_National_Park_Photo_by_Giles_Laurent.jpg/500px-004_Chital_in_Keoladeo_National_Park_Photo_by_Giles_Laurent.jpg"
   },
   {
     "id": "goa-churches-convents",
@@ -276,7 +285,8 @@
     },
     "nearby": [],
     "cluster": "goa",
-    "_note": "Serial property; coordinates for Old Goa cluster."
+    "_note": "Serial property; coordinates for Old Goa cluster.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Old_Goa%2C_Se_Cathedral%2C_Panoramic_view.jpg/500px-Old_Goa%2C_Se_Cathedral%2C_Panoramic_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "khajuraho-monuments",
@@ -303,7 +313,8 @@
       "km": 5
     },
     "nearby": [],
-    "cluster": "madhya-pradesh-heritage"
+    "cluster": "madhya-pradesh-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/1_Khajuraho.jpg/500px-1_Khajuraho.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "hampi-monuments",
@@ -330,7 +341,8 @@
       "km": 105
     },
     "nearby": [],
-    "cluster": "karnataka-heritage"
+    "cluster": "karnataka-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg/500px-Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "fatehpur-sikri",
@@ -359,7 +371,8 @@
     "nearby": [
       "keoladeo-national-park"
     ],
-    "cluster": "agra-braj"
+    "cluster": "agra-braj",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg/500px-Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "pattadakal-monuments",
@@ -386,7 +399,8 @@
       "km": 105
     },
     "nearby": [],
-    "cluster": "karnataka-heritage"
+    "cluster": "karnataka-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Pattadakal_000.JPG/500px-Pattadakal_000.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "elephanta-caves",
@@ -416,7 +430,8 @@
       "chhatrapati-shivaji-terminus",
       "victorian-gothic-artdeco-mumbai"
     ],
-    "cluster": "mumbai-heritage"
+    "cluster": "mumbai-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Elephanta_Caves_Trimurti.jpg/500px-Elephanta_Caves_Trimurti.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "chola-temples",
@@ -444,7 +459,8 @@
     },
     "nearby": [],
     "cluster": "tamil-nadu-temple-trail",
-    "_note": "Serial property (Thanjavur, Gangaikondacholapuram, Darasuram); coords for Thanjavur."
+    "_note": "Serial property (Thanjavur, Gangaikondacholapuram, Darasuram); coords for Thanjavur.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/A_collage_of_Great_living_Chola_temples_UNESCO_heritage_site.jpg/500px-A_collage_of_Great_living_Chola_temples_UNESCO_heritage_site.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "sundarbans-national-park",
@@ -471,7 +487,8 @@
       "km": 110
     },
     "nearby": [],
-    "cluster": "bengal-heritage"
+    "cluster": "bengal-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Save_the_sundarbans_20.jpg/500px-Save_the_sundarbans_20.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "nanda-devi-valley-of-flowers",
@@ -501,7 +518,8 @@
       "badrinath-temple"
     ],
     "cluster": "himalaya-natural",
-    "_note": "Serial property, two adjoining parks."
+    "_note": "Serial property, two adjoining parks.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Glimpse_of_Nanda_Devi_amidst_the_clouds_from_Valley_of_Flowers.jpg/500px-Glimpse_of_Nanda_Devi_amidst_the_clouds_from_Valley_of_Flowers.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "sanchi-buddhist-monuments",
@@ -528,7 +546,8 @@
       "km": 55
     },
     "nearby": [],
-    "cluster": "madhya-pradesh-heritage"
+    "cluster": "madhya-pradesh-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/East_Gateway_-_Stupa_1_-_Sanchi_Hill_2013-02-21_4398.JPG/500px-East_Gateway_-_Stupa_1_-_Sanchi_Hill_2013-02-21_4398.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "humayuns-tomb",
@@ -558,7 +577,8 @@
       "qutb-minar",
       "red-fort"
     ],
-    "cluster": "delhi-ncr"
+    "cluster": "delhi-ncr",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Tomb_of_Humayun%2C_Delhi.jpg/500px-Tomb_of_Humayun%2C_Delhi.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "qutb-minar",
@@ -588,7 +608,8 @@
       "humayuns-tomb",
       "red-fort"
     ],
-    "cluster": "delhi-ncr"
+    "cluster": "delhi-ncr",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Qutb_minar_ruins.jpg/500px-Qutb_minar_ruins.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "mountain-railways-india",
@@ -616,7 +637,8 @@
     },
     "nearby": [],
     "cluster": "darjeeling-sikkim-himalaya",
-    "_note": "Serial property (Darjeeling, Nilgiri, Kalka-Shimla); coords for Darjeeling Himalayan Railway."
+    "_note": "Serial property (Darjeeling, Nilgiri, Kalka-Shimla); coords for Darjeeling Himalayan Railway.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Darjeeling_Himalayan_Railway%2Ctoy_train_%282%29.jpg/500px-Darjeeling_Himalayan_Railway%2Ctoy_train_%282%29.jpg"
   },
   {
     "id": "mahabodhi-temple-bodhgaya",
@@ -643,7 +665,8 @@
       "km": 11
     },
     "nearby": [],
-    "cluster": "bihar-buddhist-circuit"
+    "cluster": "bihar-buddhist-circuit",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Mahabodhitemple.jpg/500px-Mahabodhitemple.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "bhimbetka-rock-shelters",
@@ -670,7 +693,8 @@
       "km": 45
     },
     "nearby": [],
-    "cluster": "madhya-pradesh-heritage"
+    "cluster": "madhya-pradesh-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Rock_Shelter_8%2C_Bhimbetka_02.jpg/500px-Rock_Shelter_8%2C_Bhimbetka_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "chhatrapati-shivaji-terminus",
@@ -700,7 +724,8 @@
       "elephanta-caves",
       "victorian-gothic-artdeco-mumbai"
     ],
-    "cluster": "mumbai-heritage"
+    "cluster": "mumbai-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Chhatrapati_shivaji_terminus%2C_esterno_01.jpg/500px-Chhatrapati_shivaji_terminus%2C_esterno_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "champaner-pavagadh",
@@ -727,7 +752,8 @@
       "km": 49
     },
     "nearby": [],
-    "cluster": "gujarat-heritage"
+    "cluster": "gujarat-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Jain_Temple%2C_Pavagadh_%28cropped%29.jpg/500px-Jain_Temple%2C_Pavagadh_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "red-fort",
@@ -757,7 +783,8 @@
       "humayuns-tomb",
       "qutb-minar"
     ],
-    "cluster": "delhi-ncr"
+    "cluster": "delhi-ncr",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Delhi_fort.jpg/500px-Delhi_fort.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "jantar-mantar-jaipur",
@@ -786,7 +813,8 @@
     "nearby": [
       "jaipur-city"
     ],
-    "cluster": "rajasthan-forts"
+    "cluster": "rajasthan-forts",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Jantar_Mantar_at_Jaipur.jpg/500px-Jantar_Mantar_at_Jaipur.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "western-ghats",
@@ -814,7 +842,8 @@
     },
     "nearby": [],
     "cluster": "western-ghats-natural",
-    "_note": "Serial property, 39 components across 4 states; approximate central point."
+    "_note": "Serial property, 39 components across 4 states; approximate central point.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/AnaimudiPeak_DSC_4834.jpg/500px-AnaimudiPeak_DSC_4834.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "hill-forts-rajasthan",
@@ -842,7 +871,8 @@
     },
     "nearby": [],
     "cluster": "rajasthan-forts",
-    "_note": "Serial property (Chittorgarh, Kumbhalgarh, Ranthambore, Gagron, Amber, Jaisalmer); coords for Chittorgarh Fort."
+    "_note": "Serial property (Chittorgarh, Kumbhalgarh, Ranthambore, Gagron, Amber, Jaisalmer); coords for Chittorgarh Fort.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Jaipur_03-2016_04_Amber_Fort.jpg/500px-Jaipur_03-2016_04_Amber_Fort.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "rani-ki-vav",
@@ -869,7 +899,8 @@
       "km": 125
     },
     "nearby": [],
-    "cluster": "gujarat-heritage"
+    "cluster": "gujarat-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Rani_ki_vav_02.jpg/500px-Rani_ki_vav_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "great-himalayan-national-park",
@@ -896,7 +927,8 @@
       "km": 55
     },
     "nearby": [],
-    "cluster": "himalaya-natural"
+    "cluster": "himalaya-natural",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Himalayn_National_Park_01.jpg/500px-Himalayn_National_Park_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "nalanda-mahavihara",
@@ -923,7 +955,8 @@
       "km": 90
     },
     "nearby": [],
-    "cluster": "bihar-buddhist-circuit"
+    "cluster": "bihar-buddhist-circuit",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Temple_No.-_3%2C_Nalanda_Archaeological_Site.jpg/500px-Temple_No.-_3%2C_Nalanda_Archaeological_Site.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "khangchendzonga-national-park",
@@ -950,7 +983,8 @@
       "km": 125
     },
     "nearby": [],
-    "cluster": "darjeeling-sikkim-himalaya"
+    "cluster": "darjeeling-sikkim-himalaya",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Kangch-Goechala.jpg/500px-Kangch-Goechala.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "le-corbusier-chandigarh",
@@ -978,7 +1012,8 @@
     },
     "nearby": [],
     "cluster": "chandigarh-modern",
-    "_note": "Transnational serial property (17 sites/7 countries); India's component is the Complexe du Capitole, Chandigarh."
+    "_note": "Transnational serial property (17 sites/7 countries); India's component is the Complexe du Capitole, Chandigarh.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Le_Corbusier_%281964%29.jpg/500px-Le_Corbusier_%281964%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "historic-city-ahmadabad",
@@ -1005,7 +1040,8 @@
       "km": 15
     },
     "nearby": [],
-    "cluster": "gujarat-heritage"
+    "cluster": "gujarat-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Ahmedabad_1855.jpg/500px-Ahmedabad_1855.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "victorian-gothic-artdeco-mumbai",
@@ -1036,7 +1072,8 @@
       "chhatrapati-shivaji-terminus"
     ],
     "cluster": "mumbai-heritage",
-    "_note": "Two adjoining South Mumbai precincts; coords for Oval Maidan precinct."
+    "_note": "Two adjoining South Mumbai precincts; coords for Oval Maidan precinct.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Mumbai_03-2016_41_Bombay_High_Court.jpg/500px-Mumbai_03-2016_41_Bombay_High_Court.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "jaipur-city",
@@ -1065,7 +1102,8 @@
     "nearby": [
       "jantar-mantar-jaipur"
     ],
-    "cluster": "rajasthan-forts"
+    "cluster": "rajasthan-forts",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/500px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "ramappa-temple",
@@ -1092,7 +1130,8 @@
       "km": 220
     },
     "nearby": [],
-    "cluster": "telangana-heritage"
+    "cluster": "telangana-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Ramappa_Temple_%28Human_Scale%29.jpg/500px-Ramappa_Temple_%28Human_Scale%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "dholavira",
@@ -1119,7 +1158,8 @@
       "km": 250
     },
     "nearby": [],
-    "cluster": "gujarat-heritage"
+    "cluster": "gujarat-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/DHOLAVIRA_SITE_%2824%29.jpg/500px-DHOLAVIRA_SITE_%2824%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "santiniketan",
@@ -1146,7 +1186,8 @@
       "km": 55
     },
     "nearby": [],
-    "cluster": "bengal-heritage"
+    "cluster": "bengal-heritage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Shantiniketan_Bari_of_Rabindranath_Tagore.jpg/500px-Shantiniketan_Bari_of_Rabindranath_Tagore.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "hoysala-temples",
@@ -1174,7 +1215,8 @@
     },
     "nearby": [],
     "cluster": "karnataka-heritage",
-    "_note": "Serial property (Belur, Halebidu, Somanathapura); coords for Chennakeshava Temple, Belur."
+    "_note": "Serial property (Belur, Halebidu, Somanathapura); coords for Chennakeshava Temple, Belur.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Somanathapura_Keshava_temple.jpg/500px-Somanathapura_Keshava_temple.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "moidams-ahom",
@@ -1201,7 +1243,8 @@
       "km": 60
     },
     "nearby": [],
-    "cluster": "assam-northeast"
+    "cluster": "assam-northeast",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Sam2.JPG/500px-Sam2.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "maratha-military-landscapes",
@@ -1229,7 +1272,8 @@
     },
     "nearby": [],
     "cluster": "nashik-sahyadri-trail",
-    "_note": "Serial property (12 forts, Maharashtra & Tamil Nadu); coords for Raigad Fort."
+    "_note": "Serial property (12 forts, Maharashtra & Tamil Nadu); coords for Raigad Fort.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Shivneri_fort1.JPG/500px-Shivneri_fort1.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "sarnath",
@@ -1258,7 +1302,8 @@
     "nearby": [
       "kashi-vishwanath-temple"
     ],
-    "cluster": "varanasi-buddhist-circuit"
+    "cluster": "varanasi-buddhist-circuit",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Ancient_Buddhist_monasteries_near_Dhamekh_Stupa_Monument_Site%2C_Sarnath.jpg/500px-Ancient_Buddhist_monasteries_near_Dhamekh_Stupa_Monument_Site%2C_Sarnath.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "somnath-temple",
@@ -1285,7 +1330,8 @@
       "km": 85
     },
     "nearby": [],
-    "cluster": "saurashtra-pilgrimage"
+    "cluster": "saurashtra-pilgrimage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Somanath_mandir_%28cropped%29.jpg/500px-Somanath_mandir_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "mallikarjuna-temple",
@@ -1312,7 +1358,8 @@
       "km": 210
     },
     "nearby": [],
-    "cluster": "andhra-pilgrimage"
+    "cluster": "andhra-pilgrimage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Srisailam-temple-entrance.jpg/500px-Srisailam-temple-entrance.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "mahakaleshwar-temple",
@@ -1339,7 +1386,8 @@
       "km": 55
     },
     "nearby": [],
-    "cluster": "malwa-pilgrimage"
+    "cluster": "malwa-pilgrimage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Mahakaleshwar_Temple%2C_Ujjain.jpg/500px-Mahakaleshwar_Temple%2C_Ujjain.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "omkareshwar-temple",
@@ -1366,7 +1414,8 @@
       "km": 77
     },
     "nearby": [],
-    "cluster": "malwa-pilgrimage"
+    "cluster": "malwa-pilgrimage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Omkareswar_Jyotirlinga.jpg/500px-Omkareswar_Jyotirlinga.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "kedarnath-temple",
@@ -1393,7 +1442,8 @@
       "km": 235
     },
     "nearby": [],
-    "cluster": "chardham-himalaya"
+    "cluster": "chardham-himalaya",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Kedarnath_Temple_in_Rainy_season.jpg/500px-Kedarnath_Temple_in_Rainy_season.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "bhimashankar-temple",
@@ -1420,7 +1470,8 @@
       "km": 105
     },
     "nearby": [],
-    "cluster": "nashik-sahyadri-trail"
+    "cluster": "nashik-sahyadri-trail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Bhimashankar.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
   },
   {
     "id": "kashi-vishwanath-temple",
@@ -1449,7 +1500,8 @@
     "nearby": [
       "sarnath"
     ],
-    "cluster": "varanasi-buddhist-circuit"
+    "cluster": "varanasi-buddhist-circuit",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Kashi_Vishwanath.jpg/500px-Kashi_Vishwanath.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "trimbakeshwar-temple",
@@ -1476,7 +1528,8 @@
       "km": 50
     },
     "nearby": [],
-    "cluster": "nashik-sahyadri-trail"
+    "cluster": "nashik-sahyadri-trail",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Trimbakeshwar_Temple-Nashik-Maharashtra-1.jpg/500px-Trimbakeshwar_Temple-Nashik-Maharashtra-1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "baidyanath-temple",
@@ -1503,7 +1556,8 @@
       "km": 9
     },
     "nearby": [],
-    "cluster": "jharkhand-pilgrimage"
+    "cluster": "jharkhand-pilgrimage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Baidyanath_temple_and_temple_complex%2C_Deoghar_04.jpg/500px-Baidyanath_temple_and_temple_complex%2C_Deoghar_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "nageshwar-jyotirlinga",
@@ -1532,7 +1586,8 @@
     "nearby": [
       "dwarkadhish-temple"
     ],
-    "cluster": "saurashtra-pilgrimage"
+    "cluster": "saurashtra-pilgrimage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Nageshwar.JPG/500px-Nageshwar.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "rameswaram",
@@ -1560,7 +1615,8 @@
       "km": 174
     },
     "nearby": [],
-    "cluster": "tamil-nadu-temple-trail"
+    "cluster": "tamil-nadu-temple-trail",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Ramanathaswamy_temple7.JPG/500px-Ramanathaswamy_temple7.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "grishneshwar-temple",
@@ -1589,7 +1645,8 @@
     "nearby": [
       "ellora-caves"
     ],
-    "cluster": "aurangabad-deccan"
+    "cluster": "aurangabad-deccan",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Grishneshwar_temple_in_Aurangabad_district.jpg/500px-Grishneshwar_temple_in_Aurangabad_district.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "badrinath-temple",
@@ -1618,7 +1675,8 @@
     "nearby": [
       "nanda-devi-valley-of-flowers"
     ],
-    "cluster": "chardham-himalaya"
+    "cluster": "chardham-himalaya",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Badrinath_Temple_%2C_Uttarakhand.jpg/500px-Badrinath_Temple_%2C_Uttarakhand.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "dwarkadhish-temple",
@@ -1647,7 +1705,8 @@
     "nearby": [
       "nageshwar-jyotirlinga"
     ],
-    "cluster": "saurashtra-pilgrimage"
+    "cluster": "saurashtra-pilgrimage",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Dwarakadheesh_Temple%2C_2014.jpg/500px-Dwarakadheesh_Temple%2C_2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "jagannath-temple-puri",
@@ -1674,6 +1733,7 @@
       "km": 60
     },
     "nearby": [],
-    "cluster": "odisha-coast"
+    "cluster": "odisha-coast",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Shri_Jagannath_temple.jpg/500px-Shri_Jagannath_temple.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   }
 ]
