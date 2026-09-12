@@ -101,10 +101,11 @@
     ctx.font = "20px -apple-system, Helvetica, Arial, sans-serif";
     ctx.fillText("My heritage passport", 178, 152);
 
-    // India outline with dots for visited sites -- as large as the header
-    // and stats block leave room for, filling nearly the whole card
+    // India outline with dots for visited sites -- stats moved to a side
+    // column so the map itself can run almost the full card height, per
+    // the size the user sketched.
     var bounds = outlineBounds();
-    var mapBox = { x: 60, y: 205, w: W - 120, h: 615 };
+    var mapBox = { x: 50, y: 195, w: 700, h: 780 };
     var project = makeProjector(bounds, mapBox);
 
     ctx.beginPath();
@@ -132,10 +133,12 @@
       ctx.stroke();
     });
 
-    // Stats -- UNESCO, Jyotirlinga and Char Dham each shown separately
+    // Stats -- UNESCO, Jyotirlinga and Char Dham each shown separately, in
+    // a column to the right of the map rather than stacked below it.
     var counts = BHT.counts();
-    var statsY = 862;
-    var rowGap = 62;
+    var statsX = mapBox.x + mapBox.w + 30;
+    var rowGap = 110;
+    var statsY = mapBox.y + mapBox.h / 2 - rowGap;
     ctx.textBaseline = "alphabetic";
 
     var rows = [
@@ -145,13 +148,13 @@
     ];
     rows.forEach(function (row, i) {
       var y = statsY + i * rowGap;
-      ctx.font = "700 46px -apple-system, Helvetica, Arial, sans-serif";
+      ctx.font = "700 44px -apple-system, Helvetica, Arial, sans-serif";
       ctx.fillStyle = ACCENT;
-      ctx.fillText(String(row[0]), 90, y);
-      var w = ctx.measureText(String(row[0])).width;
-      ctx.font = "400 24px -apple-system, Helvetica, Arial, sans-serif";
+      ctx.fillText(String(row[0]), statsX, y);
+      ctx.font = "400 22px -apple-system, Helvetica, Arial, sans-serif";
       ctx.fillStyle = MUTED;
-      ctx.fillText("/" + row[1] + " " + row[2], 90 + w + 8, y);
+      ctx.fillText("/" + row[1], statsX, y + 26);
+      ctx.fillText(row[2], statsX, y + 50);
     });
 
     // Domain, small, corner
