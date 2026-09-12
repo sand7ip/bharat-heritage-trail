@@ -4,9 +4,11 @@
   function updateCounts() {
     var c = BHT.counts();
     var uEl = document.querySelector('[data-count="unesco"]');
-    var pEl = document.querySelector('[data-count="pilgrimage"]');
+    var jEl = document.querySelector('[data-count="jyotirlinga"]');
+    var dEl = document.querySelector('[data-count="chardham"]');
     if (uEl) uEl.textContent = c.unescoDone;
-    if (pEl) pEl.textContent = c.pilgrimDone;
+    if (jEl) jEl.textContent = c.jyotirlingaDone;
+    if (dEl) dEl.textContent = c.chardhamDone;
 
     var stateCounts = {};
     BHT.SITES.forEach(function (s) {

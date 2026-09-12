@@ -2,8 +2,12 @@
 // SITES array as a JSON island, injecting both into index.html between
 // marker comments. This is what makes "content ships in the HTML" true --
 // curl the served page and every site name/blurb is already there.
+// Also cache-busts local JS/CSS <script src>/<link href> references with
+// a content hash, so a deploy actually reaches returning visitors' browsers
+// instead of silently running whatever they cached last time.
 // Run: node scripts/generate-html.mjs
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { createHash } from "node:crypto";
 
 const sites = JSON.parse(readFileSync(new URL("../data/sites.json", import.meta.url)));
 const cities = JSON.parse(readFileSync(new URL("../data/cities.json", import.meta.url)));
@@ -79,5 +83,21 @@ html = html.replace(
   `$1${outlinePayload}$2`
 );
 
+// Cache-bust: hash every local JS/CSS file this page loads, then stamp
+// that hash onto each reference (stripping any prior ?v= first, so this
+// stays idempotent across repeated runs).
+const jsDir = new URL("../assets/js/", import.meta.url);
+const jsFiles = readdirSync(jsDir).filter((f) => f.endsWith(".js")).sort();
+const hash = createHash("sha256");
+for (const f of jsFiles) hash.update(readFileSync(new URL(f, jsDir)));
+hash.update(readFileSync(new URL("../assets/css/style.css", import.meta.url)));
+const buildVersion = hash.digest("hex").slice(0, 10);
+
+html = html.replace(
+  /(src|href)="(assets\/(?:js\/[^"?]+\.js|css\/[^"?]+\.css))(\?v=[^"]*)?"/g,
+  (_m, attr, path) => `${attr}="${path}?v=${buildVersion}"`
+);
+
 writeFileSync(indexPath, html);
 console.log(`Rendered ${sites.length} sites across ${states.length} states into index.html`);
+console.log(`Cache-busted local JS/CSS with build version ${buildVersion}`);
