@@ -15,6 +15,17 @@
 
   var SITE_URL = "https://YOUR-DOMAIN-HERE.example/";
 
+  // The one master logo (assets/img/logo.png) drawn everywhere the brand
+  // mark appears -- same file the favicon/apple-touch-icon/og-image are
+  // generated from, so there's only ever one visual source of truth.
+  var logoImg = new Image();
+  var logoLoaded = false;
+  logoImg.onload = function () {
+    logoLoaded = true;
+    if (!modal.hidden) render();
+  };
+  logoImg.src = "assets/img/logo.png";
+
   var INK = "#1f1e1d";
   var MUTED = "#6b6862";
   var BG = "#f0eee6";
@@ -69,41 +80,6 @@
   // cream tiered-spire silhouette. Same composition and proportions
   // everywhere the brand mark appears (favicon, apple-touch-icon,
   // og-image, topbar, this card) -- no separate "stamp with rays" variant.
-  function drawStamp(cx, cy, r) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(cx, cy, r, 0, Math.PI * 2);
-    ctx.fillStyle = ACCENT;
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.arc(cx, cy, r * 0.793, 0, Math.PI * 2);
-    ctx.strokeStyle = "#faf9f5";
-    ctx.lineWidth = r * 0.048;
-    ctx.stroke();
-
-    ctx.fillStyle = "#faf9f5";
-    var s = r * 0.62;
-    var tiers = [
-      [0.55, 0.08],
-      [0.4, 0.08],
-      [0.26, 0.08],
-    ];
-    var y = cy + s * 0.42;
-    for (var t = 0; t < tiers.length; t++) {
-      var w = s * tiers[t][0];
-      var h = s * tiers[t][1];
-      ctx.beginPath();
-      ctx.moveTo(cx - w / 2, y);
-      ctx.lineTo(cx + w / 2, y);
-      ctx.lineTo(cx, y - h);
-      ctx.closePath();
-      ctx.fill();
-      y -= h * 0.85;
-    }
-    ctx.restore();
-  }
-
   function render() {
     var W = canvas.width, H = canvas.height;
     ctx.clearRect(0, 0, W, H);
@@ -115,8 +91,8 @@
     roundRect(28, 28, W - 56, H - 56, 4);
     ctx.stroke();
 
-    // Header: stamp + wordmark
-    drawStamp(110, 130, 48);
+    // Header: logo + wordmark
+    if (logoLoaded) ctx.drawImage(logoImg, 62, 82, 96, 96);
     ctx.fillStyle = INK;
     ctx.font = "700 30px Georgia, serif";
     ctx.textBaseline = "alphabetic";
@@ -125,9 +101,10 @@
     ctx.font = "20px -apple-system, Helvetica, Arial, sans-serif";
     ctx.fillText("My heritage passport", 178, 152);
 
-    // India outline with dots for visited sites
+    // India outline with dots for visited sites -- as large as the header
+    // and stats block leave room for, filling nearly the whole card
     var bounds = outlineBounds();
-    var mapBox = { x: 90, y: 210, w: W - 180, h: 470 };
+    var mapBox = { x: 60, y: 205, w: W - 120, h: 615 };
     var project = makeProjector(bounds, mapBox);
 
     ctx.beginPath();
@@ -147,7 +124,7 @@
     visitedSites.forEach(function (s) {
       var p = project(s.lat, s.lng);
       ctx.beginPath();
-      ctx.arc(p[0], p[1], 7, 0, Math.PI * 2);
+      ctx.arc(p[0], p[1], 9, 0, Math.PI * 2);
       ctx.fillStyle = SUCCESS;
       ctx.fill();
       ctx.lineWidth = 2;
@@ -157,8 +134,8 @@
 
     // Stats -- UNESCO, Jyotirlinga and Char Dham each shown separately
     var counts = BHT.counts();
-    var statsY = 758;
-    var rowGap = 68;
+    var statsY = 862;
+    var rowGap = 62;
     ctx.textBaseline = "alphabetic";
 
     var rows = [
@@ -168,11 +145,11 @@
     ];
     rows.forEach(function (row, i) {
       var y = statsY + i * rowGap;
-      ctx.font = "700 52px -apple-system, Helvetica, Arial, sans-serif";
+      ctx.font = "700 46px -apple-system, Helvetica, Arial, sans-serif";
       ctx.fillStyle = ACCENT;
       ctx.fillText(String(row[0]), 90, y);
       var w = ctx.measureText(String(row[0])).width;
-      ctx.font = "400 26px -apple-system, Helvetica, Arial, sans-serif";
+      ctx.font = "400 24px -apple-system, Helvetica, Arial, sans-serif";
       ctx.fillStyle = MUTED;
       ctx.fillText("/" + row[1] + " " + row[2], 90 + w + 8, y);
     });
