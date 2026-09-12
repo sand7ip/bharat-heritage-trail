@@ -639,6 +639,224 @@ footer p {
   margin: 0 0 10px;
 }
 
+/* ---------- Topbar actions ---------- */
+
+.topbar-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.topbar-btn {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.topbar-btn-primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface);
+}
+
+/* ---------- Quick add ---------- */
+
+.quickadd-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 30, 29, 0.4);
+  z-index: 3000;
+}
+
+.quickadd-modal {
+  position: fixed;
+  z-index: 3001;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(680px, 94vw);
+  height: min(80vh, 760px);
+  background: var(--surface);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(31, 30, 29, 0.25);
+}
+
+.quickadd-modal[hidden] {
+  display: none;
+}
+
+.quickadd-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.quickadd-count {
+  margin: 0;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.quickadd-count strong {
+  color: var(--success);
+  font-size: 20px;
+}
+
+.quickadd-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quickadd-done {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 9px 20px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  cursor: pointer;
+}
+
+.quickadd-close {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.quickadd-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 20px 28px;
+}
+
+.qa-section {
+  margin-bottom: 20px;
+}
+
+.qa-section-heading {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.qa-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.qa-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: inherit;
+  font-size: 13.5px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--ink);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.qa-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger);
+  flex-shrink: 0;
+}
+
+.qa-item[aria-pressed="true"] {
+  background: var(--success);
+  border-color: var(--success);
+  color: var(--accent-ink);
+}
+
+.qa-item[aria-pressed="true"] .qa-dot {
+  background: var(--accent-ink);
+}
+
+/* ---------- Share card ---------- */
+
+.share-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 30, 29, 0.4);
+  z-index: 3000;
+}
+
+.share-modal {
+  position: fixed;
+  z-index: 3001;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(480px, 92vw);
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(31, 30, 29, 0.25);
+}
+
+.share-canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.share-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.share-btn {
+  flex: 1;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.share-btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {

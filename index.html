@@ -38,6 +38,10 @@
       <span class="progress-sep">·</span>
       <span class="progress-item">Jyotirlinga &amp; Dham <strong data-count="pilgrimage">0</strong>/15</span>
     </p>
+    <div class="topbar-actions">
+      <button type="button" class="topbar-btn" id="quickadd-open">Quick add</button>
+      <button type="button" class="topbar-btn topbar-btn-primary" id="share-open">Share</button>
+    </div>
   </div>
 </nav>
 
@@ -731,6 +735,28 @@
   <p>Your base city and visited list are stored only in this browser's local storage. Nothing is sent anywhere, and there's no sign-up.</p>
 </footer>
 
+<div class="quickadd-overlay" id="quickadd-overlay" hidden></div>
+<div class="quickadd-modal" id="quickadd-modal" hidden role="dialog" aria-modal="true" aria-label="Quick add visited sites">
+  <div class="quickadd-header">
+    <p class="quickadd-count"><strong id="quickadd-count">0</strong> of 60 marked</p>
+    <div class="quickadd-header-actions">
+      <button type="button" class="quickadd-done" id="quickadd-done">Done</button>
+      <button type="button" class="quickadd-close" id="quickadd-close" aria-label="Close">&times;</button>
+    </div>
+  </div>
+  <div class="quickadd-body" id="quickadd-body"></div>
+</div>
+
+<div class="share-overlay" id="share-overlay" hidden></div>
+<div class="share-modal" id="share-modal" hidden role="dialog" aria-modal="true" aria-label="Share your progress">
+  <button type="button" class="detail-close" id="share-close" aria-label="Close">&times;</button>
+  <canvas id="share-canvas" width="1080" height="1080" class="share-canvas"></canvas>
+  <div class="share-actions">
+    <button type="button" class="share-btn share-btn-primary" id="share-download">Save image</button>
+    <button type="button" class="share-btn" id="share-native" hidden>Share</button>
+  </div>
+</div>
+
 <div class="detail-overlay" id="detail-overlay" hidden></div>
 <aside class="detail-panel" id="detail-panel" hidden aria-label="Site detail" role="dialog" aria-modal="true">
   <button type="button" class="detail-close" id="detail-close" aria-label="Close">&times;</button>
@@ -749,6 +775,8 @@
 <script src="assets/vendor/leaflet/leaflet.js" defer></script>
 <script src="assets/js/core.js" defer></script>
 <script src="assets/js/detail.js" defer></script>
+<script src="assets/js/sharecard.js" defer></script>
+<script src="assets/js/quickadd.js" defer></script>
 <script src="assets/js/app.js" defer></script>
 <script src="assets/js/citypicker.js" defer></script>
 <script src="assets/js/map.js" defer></script>
