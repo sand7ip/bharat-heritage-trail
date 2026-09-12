@@ -36,6 +36,7 @@
     </p>
     <div class="topbar-actions">
       <button type="button" class="topbar-btn" id="quickadd-open">Quick add</button>
+      <button type="button" class="topbar-btn" id="tripplanner-open">Plan trip</button>
       <button type="button" class="topbar-btn topbar-btn-primary" id="share-open">Share</button>
     </div>
   </div>
@@ -731,6 +732,35 @@
   <p>Your base city and visited list are stored only in this browser's local storage. Nothing is sent anywhere, and there's no sign-up.</p>
 </footer>
 
+<div class="tripplanner-overlay" id="tripplanner-overlay" hidden></div>
+<div class="tripplanner-modal" id="tripplanner-modal" hidden role="dialog" aria-modal="true" aria-label="Plan your next trip">
+  <button type="button" class="detail-close" id="tripplanner-close" aria-label="Close">&times;</button>
+  <div class="tripplanner-body">
+    <h2 class="tripplanner-title">Plan your next trip</h2>
+    <p id="tripplanner-noBaseCity" class="tp-empty" hidden>Set a base city first (top of the page) so we can work out what is actually reachable.</p>
+    <div id="tripplanner-form">
+      <div class="tripplanner-field">
+        <label>Days available</label>
+        <div class="segmented" id="tp-days">
+          <button type="button" class="segmented-btn" data-days="2" aria-selected="false">2</button>
+          <button type="button" class="segmented-btn" data-days="3" aria-selected="false">3</button>
+          <button type="button" class="segmented-btn" data-days="5" aria-selected="true">5</button>
+          <button type="button" class="segmented-btn" data-days="7" aria-selected="false">7+</button>
+        </div>
+      </div>
+      <div class="tripplanner-field">
+        <label>Travel mode</label>
+        <div class="segmented" id="tp-mode">
+          <button type="button" class="segmented-btn" data-mode="road" aria-selected="true">Road</button>
+          <button type="button" class="segmented-btn" data-mode="rail" aria-selected="false">Rail</button>
+          <button type="button" class="segmented-btn" data-mode="air" aria-selected="false">Air</button>
+        </div>
+      </div>
+    </div>
+    <div id="tripplanner-results" class="tp-results"></div>
+  </div>
+</div>
+
 <div class="quickadd-overlay" id="quickadd-overlay" hidden></div>
 <div class="quickadd-modal" id="quickadd-modal" hidden role="dialog" aria-modal="true" aria-label="Quick add visited sites">
   <div class="quickadd-header">
@@ -778,6 +808,7 @@
 <script src="assets/js/quickadd.js" defer></script>
 <script src="assets/js/app.js" defer></script>
 <script src="assets/js/citypicker.js" defer></script>
+<script src="assets/js/tripplanner.js" defer></script>
 <script src="assets/js/map.js" defer></script>
 </body>
 </html>
