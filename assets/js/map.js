@@ -31,12 +31,8 @@
   // it's deferred to the first invalidateSize() call, on first reveal.
   var hasFitBounds = false;
 
-  function markerColor(site) {
-    return site.collections.indexOf("unesco") !== -1 ? "unesco" : "pilgrim";
-  }
-
   function makeIcon(site) {
-    var cls = "map-marker map-marker--" + markerColor(site) + (BHT.isVisited(site.id) ? " map-marker--visited" : "");
+    var cls = "map-marker" + (BHT.isVisited(site.id) ? " map-marker--visited" : "");
     return L.divIcon({
       className: "",
       html: '<span class="' + cls + '"></span>',

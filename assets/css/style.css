@@ -8,7 +8,7 @@
   --ink: #1f1e1d;
   --muted: #6b6862;
   --accent: #c15f3c;
-  --accent2: #4a6b73;
+  --danger: #b3453d;
   --success: #4b7355;
   --accent-ink: #faf9f5;
   --border: #ddd8cc;
@@ -354,8 +354,8 @@ main {
   height: 26px;
   margin-top: 2px;
   border-radius: 50%;
-  border: 1.5px solid var(--border);
-  background: var(--surface);
+  border: 1.5px solid var(--danger);
+  background: var(--danger);
   cursor: pointer;
   padding: 0;
   position: relative;
@@ -435,11 +435,7 @@ main {
   border-radius: 50%;
   border: 2px solid var(--surface);
   box-shadow: 0 0 0 1px rgba(31, 30, 29, 0.25);
-  background: var(--accent);
-}
-
-.map-marker--pilgrim {
-  background: var(--accent2);
+  background: var(--danger);
 }
 
 .map-marker--visited {
@@ -586,8 +582,8 @@ main {
   font-weight: 700;
   padding: 12px;
   border-radius: var(--radius);
-  border: 1.5px solid var(--accent);
-  background: var(--accent);
+  border: 1.5px solid var(--danger);
+  background: var(--danger);
   color: var(--accent-ink);
   cursor: pointer;
   margin-bottom: 18px;
