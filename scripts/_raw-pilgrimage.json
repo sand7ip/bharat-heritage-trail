@@ -1,0 +1,17 @@
+[
+  {"name":"Somnath Temple","state":"Gujarat","lat":20.888028,"lng":70.401389,"wikiUrl":"https://en.wikipedia.org/wiki/Somnath_temple","collections":["jyotirlinga"],"bestMonths":"Oct–Mar"},
+  {"name":"Mallikarjuna Temple","state":"Andhra Pradesh","lat":16.07417,"lng":78.86806,"wikiUrl":"https://en.wikipedia.org/wiki/Mallikarjuna_Temple,_Srisailam","collections":["jyotirlinga"],"bestMonths":"Oct–Feb"},
+  {"name":"Mahakaleshwar Temple","state":"Madhya Pradesh","lat":23.18278,"lng":75.76833,"wikiUrl":"https://en.wikipedia.org/wiki/Mahakaleshwar_Jyotirlinga","collections":["jyotirlinga"],"bestMonths":"Oct–Mar"},
+  {"name":"Omkareshwar Temple","state":"Madhya Pradesh","lat":22.245583,"lng":76.151056,"wikiUrl":"https://en.wikipedia.org/wiki/Omkareshwar_Temple","collections":["jyotirlinga"],"bestMonths":"Oct–Mar"},
+  {"name":"Kedarnath Temple","state":"Uttarakhand","lat":30.735194,"lng":79.066917,"wikiUrl":"https://en.wikipedia.org/wiki/Kedarnath_Temple","collections":["jyotirlinga"],"bestMonths":"May–Jun, Sep–Oct"},
+  {"name":"Bhimashankar Temple","state":"Maharashtra","lat":19.072,"lng":73.536,"wikiUrl":"https://en.wikipedia.org/wiki/Bhimashankar_Temple","collections":["jyotirlinga"],"bestMonths":"Oct–Feb"},
+  {"name":"Kashi Vishwanath Temple","state":"Uttar Pradesh","lat":25.310775,"lng":83.010614,"wikiUrl":"https://en.wikipedia.org/wiki/Kashi_Vishwanath_Temple","collections":["jyotirlinga"],"bestMonths":"Oct–Mar"},
+  {"name":"Trimbakeshwar Shiva Temple","state":"Maharashtra","lat":19.93222,"lng":73.53083,"wikiUrl":"https://en.wikipedia.org/wiki/Trimbakeshwar_Shiva_Temple","collections":["jyotirlinga"],"bestMonths":"Oct–Mar"},
+  {"name":"Baidyanath Temple","state":"Jharkhand","lat":24.4925,"lng":86.7,"wikiUrl":"https://en.wikipedia.org/wiki/Baidyanath_Temple","collections":["jyotirlinga"],"bestMonths":"Oct–Mar"},
+  {"name":"Nageshwar Jyotirlinga","state":"Gujarat","lat":22.3359,"lng":69.0869,"wikiUrl":"https://en.wikipedia.org/wiki/Nageshwar_Jyotirlinga","collections":["jyotirlinga"],"bestMonths":"Oct–Mar"},
+  {"name":"Ramanathaswamy Temple","state":"Tamil Nadu","lat":9.288106,"lng":79.317282,"wikiUrl":"https://en.wikipedia.org/wiki/Ramanathaswamy_Temple","collections":["jyotirlinga","chardham"],"bestMonths":"Oct–Mar"},
+  {"name":"Grishneshwar Temple","state":"Maharashtra","lat":20.024972,"lng":75.169917,"wikiUrl":"https://en.wikipedia.org/wiki/Grishneshwar_Temple","collections":["jyotirlinga"],"bestMonths":"Oct–Mar"},
+  {"name":"Badrinath Temple","state":"Uttarakhand","lat":30.744695,"lng":79.491175,"wikiUrl":"https://en.wikipedia.org/wiki/Badrinath_Temple","collections":["chardham"],"bestMonths":"May–Jun, Sep–Oct"},
+  {"name":"Dwarkadhish Temple","state":"Gujarat","lat":22.2378861,"lng":68.9675611,"wikiUrl":"https://en.wikipedia.org/wiki/Dwarkadhish_Temple","collections":["chardham"],"bestMonths":"Oct–Mar"},
+  {"name":"Jagannath Temple, Puri","state":"Odisha","lat":19.80472,"lng":85.81833,"wikiUrl":"https://en.wikipedia.org/wiki/Jagannath_Temple,_Puri","collections":["chardham"],"bestMonths":"Oct–Feb"}
+]
