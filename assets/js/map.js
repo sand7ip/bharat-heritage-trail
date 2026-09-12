@@ -4,32 +4,27 @@
   var mapEl = document.getElementById("map");
   if (!mapEl || typeof L === "undefined") return;
 
-  // No basemap tiles at all -- every free/keyless tile provider either bakes
-  // in city labels and borders (plain OSM) or now gates its "no labels" style
-  // behind an API key (CARTO). A single India outline plus the 60 site dots
-  // is the actual brief here ("very simple... nothing else"), so that's all
-  // this renders: one local vendored GeoJSON polygon, no network requests,
-  // no other country's borders, no labels, no roads.
-  var outlineLayer = L.geoJSON(BHT.INDIA_OUTLINE, {
-    style: {
-      color: "#ddd8cc",
-      weight: 1.5,
-      fillColor: "#faf9f5",
-      fillOpacity: 1,
-    },
-  });
-  var INDIA_BOUNDS = outlineLayer.getBounds();
+  var INDIA_BOUNDS = L.latLngBounds([6, 66], [37.5, 99]);
 
   var map = L.map(mapEl, {
     center: INDIA_BOUNDS.getCenter(),
     zoom: 5,
     minZoom: 4,
-    maxBounds: INDIA_BOUNDS.pad(0.25),
+    maxBounds: INDIA_BOUNDS.pad(0.2),
     maxBoundsViscosity: 0.8,
-    attributionControl: false,
-    zoomSnap: 0.25,
   });
-  outlineLayer.addTo(map);
+
+  // Esri's "Light Gray Canvas" base layer: real Mercator-projected map tiles
+  // (unlike a raw vector outline, this can't look distorted), no API key,
+  // and -- unlike plain OSM -- no city names, no state borders, no road
+  // network. Only sparse country-level labels remain.
+  L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+    {
+      attribution: "Tiles &copy; Esri",
+      maxZoom: 16,
+    }
+  ).addTo(map);
 
   // The map container starts `hidden` (list view is the default), so fitBounds
   // can't run correctly until the container has real, non-zero dimensions --

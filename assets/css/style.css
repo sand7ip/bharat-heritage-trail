@@ -9,11 +9,14 @@
   --muted: #6b6862;
   --accent: #c15f3c;
   --accent2: #4a6b73;
+  --success: #4b7355;
   --accent-ink: #faf9f5;
   --border: #ddd8cc;
   --radius: 10px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-brand: "Martel", Georgia, serif;
   --max-width: 720px;
+  --topbar-height: 60px;
 }
 
 * {
@@ -51,45 +54,58 @@ input:focus-visible {
   padding: 0 20px;
 }
 
-/* ---------- Header ---------- */
+/* ---------- Top navbar ---------- */
 
-.site-header {
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: var(--topbar-height);
+  background: var(--surface);
   border-bottom: 1px solid var(--border);
-  padding: 28px 0 20px;
+}
+
+.topbar-wrap {
+  height: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
+  flex-shrink: 0;
 }
 
 .brand-mark {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
 }
 
 .brand-name {
-  font-size: 20px;
+  font-family: var(--font-brand);
+  font-size: 19px;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
-.tagline {
-  margin: 14px 0 0;
-  color: var(--muted);
-  font-size: 15px;
-  max-width: 46ch;
-}
-
-.progress-bar {
-  margin-top: 18px;
+.topbar-progress {
+  margin: 0;
   display: flex;
   align-items: baseline;
-  gap: 10px;
-  font-size: 15px;
+  gap: 8px;
+  font-size: 14px;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .progress-item strong {
@@ -99,6 +115,44 @@ input:focus-visible {
 
 .progress-sep {
   color: var(--border);
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+}
+
+.site-header-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14.5px;
+  max-width: 46ch;
+}
+
+@media (min-width: 760px) {
+  .site-header-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 960px;
+    gap: 24px;
+  }
+  .tagline {
+    flex: 1;
+  }
+  .base-city {
+    margin-top: 0;
+    flex-shrink: 0;
+    width: 300px;
+  }
 }
 
 /* ---------- Base city picker ---------- */
@@ -185,17 +239,20 @@ input:focus-visible {
 
 .tabs-row {
   position: sticky;
-  top: 0;
-  z-index: 10;
+  top: var(--topbar-height);
+  z-index: 20;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
+}
+
+.tabs-row-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 10px 20px;
-  max-width: var(--max-width);
-  margin: 0 auto;
   overflow-x: auto;
 }
 
@@ -305,8 +362,8 @@ main {
 }
 
 .visited-toggle[aria-pressed="true"] {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--success);
+  border-color: var(--success);
 }
 
 .visited-toggle[aria-pressed="true"]::after {
@@ -386,8 +443,8 @@ main {
 }
 
 .map-marker--visited {
-  background: var(--muted);
-  opacity: 0.55;
+  background: var(--success);
+  opacity: 1;
 }
 
 .map-marker--visited::after {
@@ -537,8 +594,9 @@ main {
 }
 
 .detail-visited-toggle[aria-pressed="true"] {
-  background: transparent;
-  color: var(--accent);
+  background: var(--success);
+  border-color: var(--success);
+  color: var(--accent-ink);
 }
 
 .detail-nearby h3 {
