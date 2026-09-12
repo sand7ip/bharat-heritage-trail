@@ -147,7 +147,8 @@
     ctx.stroke();
 
     var numFont = "700 30px -apple-system, Helvetica, Arial, sans-serif";
-    var labelFont = "400 24px -apple-system, Helvetica, Arial, sans-serif";
+    var totalFont = "400 24px -apple-system, Helvetica, Arial, sans-serif";
+    var labelFont = "600 24px -apple-system, Helvetica, Arial, sans-serif";
     var sepFont = "400 24px -apple-system, Helvetica, Arial, sans-serif";
 
     var rows = [
@@ -160,8 +161,10 @@
     function segWidth(row) {
       ctx.font = numFont;
       var w = ctx.measureText(String(row[0])).width;
+      ctx.font = totalFont;
+      w += ctx.measureText("/" + row[1] + " ").width;
       ctx.font = labelFont;
-      w += ctx.measureText("/" + row[1] + " " + row[2]).width;
+      w += ctx.measureText(row[2]).width;
       return w;
     }
     var sepWidth = (function () {
@@ -178,11 +181,16 @@
       ctx.fillText(String(row[0]), x, barY);
       x += ctx.measureText(String(row[0])).width;
 
-      ctx.font = labelFont;
+      ctx.font = totalFont;
       ctx.fillStyle = MUTED;
-      var rest = "/" + row[1] + " " + row[2];
-      ctx.fillText(rest, x, barY);
-      x += ctx.measureText(rest).width;
+      var total = "/" + row[1] + " ";
+      ctx.fillText(total, x, barY);
+      x += ctx.measureText(total).width;
+
+      ctx.font = labelFont;
+      ctx.fillStyle = INK;
+      ctx.fillText(row[2], x, barY);
+      x += ctx.measureText(row[2]).width;
 
       if (i < rows.length - 1) {
         ctx.font = sepFont;
