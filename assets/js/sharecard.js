@@ -13,7 +13,7 @@
   if (!canvas) return;
   var ctx = canvas.getContext("2d");
 
-  var SITE_URL = "https://YOUR-DOMAIN-HERE.example/";
+  var SITE_URL = "https://bharatheritagetrail.com/";
 
   // The one master logo (assets/img/logo.png) drawn everywhere the brand
   // mark appears -- same file the favicon/apple-touch-icon/og-image are
