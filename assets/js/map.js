@@ -26,9 +26,6 @@
     }
   ).addTo(map);
 
-  // The map container starts `hidden` (list view is the default), so fitBounds
-  // can't run correctly until the container has real, non-zero dimensions --
-  // it's deferred to the first invalidateSize() call, on first reveal.
   var hasFitBounds = false;
 
   function makeIcon(site) {
@@ -72,17 +69,24 @@
     });
   }
 
+  function invalidateSize() {
+    setTimeout(function () {
+      map.invalidateSize();
+      if (!hasFitBounds) {
+        hasFitBounds = true;
+        map.fitBounds(INDIA_BOUNDS, { padding: [8, 8] });
+      }
+    }, 0);
+  }
+
   window.BHT_MAP = {
-    invalidateSize: function () {
-      setTimeout(function () {
-        map.invalidateSize();
-        if (!hasFitBounds) {
-          hasFitBounds = true;
-          map.fitBounds(INDIA_BOUNDS, { padding: [8, 8] });
-        }
-      }, 0);
-    },
+    invalidateSize: invalidateSize,
     setFilter: setFilter,
     _map: map,
   };
+
+  // Map is the default view now (not hidden behind a toggle click), so it
+  // already has real dimensions at construction time -- but call this once
+  // anyway to be robust against any pre-layout sizing quirks.
+  invalidateSize();
 })();

@@ -25,6 +25,7 @@
 
 html {
   background: var(--bg);
+  overflow-x: hidden;
 }
 
 body {
@@ -35,6 +36,8 @@ body {
   line-height: 1.6;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 a {
@@ -422,6 +425,7 @@ main {
 
 .site-map {
   height: 60vh;
+  height: 60dvh;
   min-height: 340px;
   max-height: 560px;
   width: 100%;
@@ -478,7 +482,9 @@ main {
   right: 0;
   bottom: 0;
   max-height: 86vh;
+  max-height: 86dvh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background: var(--surface);
   border-top: 1px solid var(--border);
   border-radius: 16px 16px 0 0;
@@ -677,6 +683,43 @@ footer p {
   color: var(--surface);
 }
 
+.btn-label-short {
+  display: none;
+}
+
+/* Below this width, brand + counts + 3 buttons can't all fit on one line --
+   drop the counts (already visible via Quick add/Share), drop the wordmark
+   text (the logo mark alone still reads as the brand), and swap in shorter
+   button labels so all three actions stay reachable with no horizontal
+   scrolling or clipping. Placed after every base rule it overrides, since
+   an unconditional rule later in the file beats an earlier media-query
+   rule of equal specificity. */
+@media (max-width: 640px) {
+  .topbar-progress {
+    display: none;
+  }
+  .topbar-wrap {
+    padding: 0 12px;
+    gap: 8px;
+  }
+  .topbar-actions {
+    gap: 6px;
+  }
+  .topbar-btn {
+    padding: 7px 10px;
+    font-size: 12.5px;
+  }
+  .brand-name {
+    display: none;
+  }
+  .btn-label-full {
+    display: none;
+  }
+  .btn-label-short {
+    display: inline;
+  }
+}
+
 /* ---------- Quick add ---------- */
 
 .quickadd-overlay {
@@ -694,6 +737,7 @@ footer p {
   transform: translate(-50%, -50%);
   width: min(680px, 94vw);
   height: min(80vh, 760px);
+  height: min(80dvh, 760px);
   background: var(--surface);
   border-radius: 16px;
   display: flex;
@@ -902,6 +946,7 @@ footer p {
   transform: translate(-50%, -50%);
   width: min(560px, 94vw);
   max-height: 86vh;
+  max-height: 86dvh;
   overflow-y: auto;
   background: var(--surface);
   border-radius: 16px;
